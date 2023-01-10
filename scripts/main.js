@@ -50,13 +50,21 @@
     });
   }
 
-  //
+  // Find array of objects which has an array of materials that are 8 or longer
   function madeOf8Plus(arr) {
     return arr.filter((obj) => {
       if (obj.materials.length >= 8) {
         return obj;
       }
     });
+  }
+  // Get the length of the array found that has only a list of all items made by sellers
+  function madeBySeller(arr) {
+    return arr.filter((obj) => {
+      if (obj.who_made === "i_did") {
+        return obj;
+      }
+    }).length;
   }
 
   console.log(
@@ -76,4 +84,5 @@
       obj.materials.forEach((value) => console.log(value));
     })
   );
+  console.log(madeBySeller(items) + " were made by their sellers");
 })();
