@@ -29,6 +29,22 @@
       }
     });
   }
+  function findGBP(arr) {
+    let namePrice = "";
+    arr.forEach((obj) => {
+      if (obj["currency_code"] === "GBP") {
+        namePrice += obj["title"] + " £" + obj["price"];
+      }
+    });
+    return namePrice;
+  }
+  function madeOfWood(arr) {
+    return arr.filter((obj) => {
+      if (obj["materials"] === "wood") {
+        return obj;
+      }
+    });
+  }
 
   console.log(
     "The average price is $",
@@ -39,4 +55,6 @@
     "Items that cost between $14.00 and $18.00 USD",
     gatherPriceRange(items)
   );
+  console.log(findGBP(items));
+  console.log(madeOfWood(items));
 })();
