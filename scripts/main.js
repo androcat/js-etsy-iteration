@@ -57,7 +57,6 @@
         return obj;
       }
     });
-    //arr.forEach((obj) => console.log(obj.materials.length));
   }
 
   console.log(
