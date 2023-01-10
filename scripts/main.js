@@ -18,6 +18,8 @@
     // Return the average
     return avg;
   }
+  //Filter through array and return only the objects that
+  // meet the currency code and price range requirements
   function gatherPriceRange(arr) {
     return arr.filter((obj) => {
       if (
@@ -29,6 +31,7 @@
       }
     });
   }
+  // Find the title and price of the item in GBP currency
   function findGBP(arr) {
     let namePrice = "";
     arr.forEach((obj) => {
@@ -38,12 +41,23 @@
     });
     return namePrice;
   }
+  // Find array of objects which materials include wood
   function madeOfWood(arr) {
     return arr.filter((obj) => {
-      if (obj["materials"] === "wood") {
+      if (obj["materials"].includes("wood")) {
         return obj;
       }
     });
+  }
+
+  //
+  function madeOf8Plus(arr) {
+    return arr.filter((obj) => {
+      if (obj.materials.length >= 8) {
+        return obj;
+      }
+    });
+    //arr.forEach((obj) => console.log(obj.materials.length));
   }
 
   console.log(
@@ -56,5 +70,11 @@
     gatherPriceRange(items)
   );
   console.log(findGBP(items));
-  console.log(madeOfWood(items));
+  console.log(madeOfWood(items).forEach((obj) => console.log(obj.title)));
+  console.log(
+    madeOf8Plus(items).forEach((obj) => {
+      console.log(obj.title);
+      obj.materials.forEach((value) => console.log(value));
+    })
+  );
 })();
